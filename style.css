@@ -5,6 +5,7 @@ body {
     color: #1d99f7;
     font-size: 25px;
     font-family: 'VT323', monospace;
+    cursor: url('cursor.png'), auto;
 }
 
 #welcome_text{

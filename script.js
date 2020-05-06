@@ -27,16 +27,16 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
 
-// poem request
+// poem request_author
 let poem_db_url = "http://poetrydb.org/author"
 
-const request = new XMLHttpRequest();
-request.open("GET", poem_db_url);
-request.send();
-request.onload = () => {
-    console.log(request);
-    if(request.status == 200) {
-        const authors = JSON.parse(request.response)["authors"];
+const request_author = new XMLHttpRequest();
+request_author.open("GET", poem_db_url);
+request_author.send();
+request_author.onload = () => {
+    console.log(request_author);
+    if(request_author.status == 200) {
+        const authors = JSON.parse(request_author.response)["authors"];
         requestTitles(authors[getRandomInt(authors.length)]);
     }else{
         console.log("error: unable to retrieve authors")
@@ -51,8 +51,8 @@ function requestTitles(author){
     request_titles.open("GET", poem_db_url);
     request_titles.send();
     request_titles.onload = () => {
-        console.log(request);
-        if(request.status == 200) {
+        console.log(request_author);
+        if(request_author.status == 200) {
             const titles = JSON.parse(request_titles.response)[getRandomInt(this.length)];
             insertPoem(titles["title"], titles["author"], titles["lines"]);
         }else{
@@ -78,4 +78,8 @@ function insertPoem(title, author, lines){
         p_tag.appendChild(text);
         poem_screen.appendChild(p_tag);
     }
+}
+
+function showLyric(){
+
 }
