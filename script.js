@@ -37,7 +37,6 @@ request.onload = () => {
     console.log(request);
     if(request.status == 200) {
         const authors = JSON.parse(request.response)["authors"];
-        // console.log(JSON.parse(request.response)[0]["lines"][1]);
         requestTitles(authors[getRandomInt(authors.length)]);
     }else{
         console.log("error: unable to retrieve authors")
@@ -45,10 +44,9 @@ request.onload = () => {
 }
 
 function requestTitles(author){
-    author = author.replace(" ", "%20")
+    author = author.replace(/ /g, "%20");
     poem_db_url = poem_db_url + '/' + author;
 
-    console.log(poem_db_url);
     const request_titles = new XMLHttpRequest();
     request_titles.open("GET", poem_db_url);
     request_titles.send();
