@@ -1,11 +1,14 @@
 body {
-    /*background-color: aqua;*/
     background: url("images/cloud.jpg") no-repeat center center fixed;
     background-size: cover;
     background-repeat: no-repeat;
     color: #0071C8;
     font-size: 25px;
     font-family: 'VT323', monospace;
+}
+
+#welcome_text{
+    text-align: center;
 }
 
 span{
@@ -25,13 +28,11 @@ span{
 #frame{
     margin-top: 20px;
     position: absolute;
-
     left: 30%;
 }
 
 #home_screen{
     background-color: black;
-    /*border: 1px solid green;*/
     position: absolute;
     overflow: scroll;
     width: 450px;
