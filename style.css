@@ -1,0 +1,78 @@
+body {
+    /*background-color: aqua;*/
+    background: url("images/cloud.jpg") no-repeat center center fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #0071C8;
+    font-size: 25px;
+    font-family: 'VT323', monospace;
+}
+
+span{
+    color: #E4BECD;
+}
+
+.container{
+    position: relative;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#frame{
+    margin-top: 20px;
+    position: absolute;
+
+    left: 30%;
+}
+
+#home_screen{
+    background-color: black;
+    /*border: 1px solid green;*/
+    position: absolute;
+    overflow: scroll;
+    width: 450px;
+    height: 300px;
+    padding: 50px;
+    margin: 20px;
+    top: 110px;
+    left: 34%;
+}
+
+#poem_screen{
+    background-color: black;
+    position: absolute;
+    overflow: scroll;
+    width: 450px;
+    height: 300px;
+    padding: 40px;
+    margin: 20px;
+    top: 110px;
+    left: 34%;
+    display: none;
+}
+
+#on_off_btn{
+    font-size: 10px;
+    color: black;
+    height: 20px;
+    width: 25px;
+    background-color: #2BC600;
+    position: absolute;
+    top: 750px;
+    left: 64%;
+}
+
+.blinking{
+    animation:blinkingText 1.2s infinite;
+}
+@keyframes blinkingText{
+    0%{     color: #E4BECD;    }
+    49%{    color: #E4BECD; }
+    60%{    color: transparent; }
+    99%{    color:transparent;  }
+    100%{   color: #E4BECD;    }
+}
