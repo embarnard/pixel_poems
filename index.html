@@ -16,20 +16,21 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<div class="container">
-</div>
-<img src="images/frame.png" alt="computer" id="frame" class="center" height="800px" width="auto">
-<div id="home_screen" onclick="showPoem()">
-         <p class="blinking" id="welcome_text">
-            <u>bienvenido! click to enter 🍓</u>
-         </p>
-</div>
-<div id="poem_screen">
-    <a onclick="showHome(true);" class="blinking"><--</a>
-    <br>
-</div>
-<div id="on_off_btn" onclick="showHome()">
-</div>
-<script src="script.js"></script>
+    <div class="container">
+        <img src="images/frame.png" alt="computer" id="frame" class="center" height="800px" width="auto">
+        <div id="screens">
+            <div id="home_screen" class="screen" onclick="showPoem()">
+                <p class="blinking" id="welcome_text">
+                    <u>bienvenido! click to enter 🍓</u>
+                </p>
+            </div>
+            <div id="poem_screen" class="screen">
+                <a onclick="showHome(true);" class="blinking"><--</a>
+                <br>
+            </div>
+        </div>
+        <div id="on_off_btn" onclick="showHome()"></div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

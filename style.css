@@ -5,6 +5,7 @@ body {
     color: #1d99f7;
     font-size: 25px;
     font-family: 'VT323', monospace;
+    cursor: url('images/cursor.png'), auto;
 }
 
 #welcome_text{
@@ -31,28 +32,28 @@ span{
     left: 30%;
 }
 
-#home_screen{
+.screen{
     background-color: black;
     position: absolute;
     overflow: scroll;
+    overflow-x: hidden;
+    scrollbar-color: dark;
+    
     width: 450px;
     height: 300px;
+    
     padding: 50px;
     margin: 20px;
+    
     top: 110px;
     left: 34%;
 }
 
+#home_screen{
+    overflow-y: hidden;
+}
+
 #poem_screen{
-    background-color: black;
-    position: absolute;
-    overflow: scroll;
-    width: 450px;
-    height: 300px;
-    padding: 40px;
-    margin: 20px;
-    top: 110px;
-    left: 34%;
     display: none;
 }
 
@@ -76,4 +77,18 @@ span{
     60%{    color: transparent; }
     99%{    color:transparent;  }
     100%{   color: #E4BECD;    }
+}
+
+/*scroll bar*/
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: black;
+}
+::-webkit-scrollbar-thumb {
+    background: #E4BECD;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
