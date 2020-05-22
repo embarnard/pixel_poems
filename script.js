@@ -30,18 +30,18 @@ function getRandomInt(max) {
 // poem request_author
 let poem_db_url = "http://poetrydb.org/author"
 
-const request_author = new XMLHttpRequest();
-request_author.open("GET", poem_db_url);
-request_author.send();
-request_author.onload = () => {
-    console.log(request_author);
-    if(request_author.status == 200) {
-        const authors = JSON.parse(request_author.response)["authors"];
-        requestTitles(authors[getRandomInt(authors.length)]);
-    }else{
-        console.log("error: unable to retrieve authors")
-    }
-}
+// const request_author = new XMLHttpRequest();
+// request_author.open("GET", poem_db_url);
+// request_author.send();
+// request_author.onload = () => {
+//     if(request_author.status == 200) {
+//         const authors = JSON.parse(request_author.response)["authors"];
+//         requestTitles(authors[getRandomInt(authors.length)]);
+//         requestTitles("")
+//     }else{
+//         console.log("error: unable to retrieve authors")
+//     }
+// }
 
 function requestTitles(author){
     author = author.replace(/ /g, "%20");
@@ -51,9 +51,9 @@ function requestTitles(author){
     request_titles.open("GET", poem_db_url);
     request_titles.send();
     request_titles.onload = () => {
-        console.log(request_author);
-        if(request_author.status == 200) {
-            const titles = JSON.parse(request_titles.response)[getRandomInt(this.length)];
+        if(request_titles.status == 200) {
+            let titles = JSON.parse(request_titles.response);
+            titles = titles[getRandomInt(titles.length)];
             insertPoem(titles["title"], titles["author"], titles["lines"]);
         }else{
             console.log("error: unable to get poem");
@@ -83,3 +83,44 @@ function insertPoem(title, author, lines){
 function showLyric(){
 
 }
+
+var author_list = [
+        // "Amy Levy",
+        // "Ann Taylor",
+        // "Anne Bradstreet",
+        "Anne Bronte",
+        // "Anne Killigrew",
+        // "Anne Kingsmill Finch",
+        // "Annie Louisa Walker",
+        "Charlotte Bronte",
+        // "Charlotte Smith",
+        // "Christina Rossetti",
+        "Edgar Allan Poe",
+        "Eliza Cook",
+        // "Elizabeth Barrett Browning",
+        "Emily Bronte",
+        "Emily Dickinson",
+        // "Emma Lazarus",
+        // "Francis Thompson",
+        // "Helen Hunt Jackson",
+        "Henry David Thoreau",
+        "Jane Austen",
+        // "Jane Taylor",
+        "Jonathan Swift",
+        // "Joyce Kilmer",
+        // "Julia Ward Howe",
+        // "Katherine Philips",
+        // "Lady Mary Chudleigh",
+        "Lewis Carroll",
+        "Louisa May Alcott",
+        "Mark Twain",
+        // "Mary Elizabeth Coleridge",
+        "Oliver Wendell Holmes",
+        "Oscar Wilde",
+        "Ralph Waldo Emerson",
+        // "Sarah Flower Adams",
+        "Sir Walter Raleigh",
+        "Walt Whitman",
+]
+
+requestTitles(author_list[getRandomInt(author_list.length)]);
